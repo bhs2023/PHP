@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/sample/ch4/receive4.php" method="get">
+        <h3>checkbox 배열 전송하기</h3>
+        <!-- checkbox 체크된 내용 전달하기 
+        선택된 항목만 값이 전달된다-->
+        <input type="checkbox" name="check[]" value="1">오렌지<br>
+        <input type="checkbox" name="check[]" value="2">멜론<br>
+        <input type="checkbox" name="check[]" value="3">참외<br>
+        <input type="checkbox" name="check[]" value="4">사과<br>
+        <input type="checkbox" name="check[]" value="5">배<br>
+        <br>
+        <input type="submit" value="보내기">
+    </form>
+</body>
+</html>

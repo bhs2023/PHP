@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/sample/ch4/login_cookie.php" method="post" name="form">
+        <?php 
+        if(!isset($_COOKIE['userid']))
+        {?>
+            userid : <input type="text" name="userid" > <br>
+            password : <input type="password" name="password" > <br>
+            <input type="button" value="로그온" onclick="goLogon()">
+        <?php
+        }else{
+        ?>
+             <?=$_COOKIE['userid']?> 님 안녕하세요<br>
+             <input type="button" value="로그아웃" onclick="goLogout()">
+       <?php             
+        } 
+        ?>
+    </form>
+</body>
+</html>
+
+<script>
+    function goLogon()
+    {
+
+        var frm = document.form; 
+        if( frm.userid.value=="")
+        {
+            alert("아이디를 입력하세요");
+            return false;
+        }
+        if( frm.password.value=="")
+        {
+            alert("패스워드를 입력하세요");
+            return false;
+        }
+        frm.method="post";
+        frm.action="./login_cookie.php";
+        frm.submit();
+    }
+
+    function goLogout()
+    {
+        var frm = document.form; 
+        frm.method="post";
+        frm.action="./logout_cookie.php";
+        frm.submit();
+    }
+
+</script>
+
+<!-- 
+C:\xampp\apache\conf\http.conf 파일 수정하기 
+
+#
+# AddType allows you to add to or override the MIME configuration
+# file specified in TypesConfig for specific file types.
+#
+#AddType application/x-gzip .tgz
+		
+AddType application/x-httpd-php .html
+AddType application/x-httpd-php .htm
+
+-->

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/sample/ch4/login.php" method="post" name="form">
+        userid : <input type="text" name="userid" > <br>
+        password : <input type="password" name="password" > <br>
+
+        <input type="button" value="로그온" onclick="goLogon()">
+    </form>
+</body>
+</html>
+
+<script>
+    function goLogon()
+    {
+
+        var frm = document.form; 
+        if( frm.userid.value=="")
+        {
+            alert("아이디를 입력하세요");
+            frm.userid.focus();
+            return false;
+        }
+        if( frm.password.value=="")
+        {
+            alert("패스워드를 입력하세요");
+            frm.password().focus();
+            return false;
+        }
+        frm.method="post";
+        frm.action="/sample/ch4/login.php";
+        frm.submit();
+    }
+</script>

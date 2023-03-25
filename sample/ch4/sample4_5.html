@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform">
+        title : <input type="text" name="userid" > <br>
+        password : <input type="password" name="password"> <br>
+        username : <input type="text" name="username"> <br>
+        email : <input type="text" name="email"> <br>
+        phone : <input type="text" name="phone"> <br>
+        <br>
+        <input type="button" onclick="goSend()" value="보내기">
+    </form>
+</body>
+</html>
+<script>
+    function goSend(){
+        var frm = document.myform; 
+        frm.action="./receive4_5.php";
+        frm.method="post";
+        frm.submit();
+    }
+</script>

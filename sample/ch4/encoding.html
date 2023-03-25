@@ -1,0 +1,9 @@
+<?php
+    $name = "홍길동";
+    $gender="M";
+
+    $url = "http://localhost:9000/sample/ch4/decoding.html?name=".rawurlencode($name)."&gender=".$gender;
+    echo $url."<br/>";
+?>
+
+<a href="<?=$url?>">이동</a>

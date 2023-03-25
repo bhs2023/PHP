@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/sample/ch4/receive5.php" method="get" name="mform">
+        <input type="hidden" name="oper" >
+        
+        <h3>javascript 를 이용해 서버로 전송하기</h3>
+        
+        x : <input type="text" name="x" ><br>
+        y : <input type="text" name="y" ><br>
+        <br>
+        <input type="button" value="더하기" onclick="goAdd('1')">&nbsp;&nbsp;
+        <input type="button" value="빼기"   onclick="goAdd('2')">&nbsp;&nbsp;
+        <input type="button" value="곱하기" onclick="goAdd('3')">&nbsp;&nbsp;
+        <input type="button" value="나누기" onclick="goAdd('4')"><br>
+    </form>
+</body>
+</html>
+<script>
+    function goAdd(oper)
+    {
+        var mform = document.mform;
+        mform.oper.value = oper; 
+        mform.submit();
+    }
+</script>

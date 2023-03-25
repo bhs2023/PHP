@@ -1,0 +1,14 @@
+<?php
+session_start ();
+
+if(!isset($_SESSION['userid'])) { // 세션이 존재하지 않을 때
+    echo "세션이 등록되지 않았습니다.";
+
+} else {                            // 세션이 존재할 때
+
+    echo $_SESSION['userid']."<br>";
+    echo $_SESSION['username']."<br>";
+    echo $_SESSION['email']."<br>";
+}
+  
+?>
