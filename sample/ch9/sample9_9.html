@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+	div{
+		width:300px; 
+		height:200px; 
+		border:1px solid black;
+	}
+</style>
+<body>
+	<div>
+        <h3>직렬화</h3>
+        <form id="myform" name="myform">
+            제목 : <input type="text" name="title"  id="title"/><br/>
+            작성자 : <input type="text" name="writer" id="writer"/><br/>
+            내용 : <input type="text" name="contents" id="contents"/><br/>
+   
+            <button id="btnSend" >보내기</button>
+        </form>
+      </div>
+
+      <div id="result"></div>
+</body>
+</html>
+<script>
+$(()=>{
+	$("#btnSend").click( (e)=>{
+        e.preventDefault();
+        //var params = {"title":$("#title").val(), "writer":$("#writer").val(), "contents":$("#contents").val()}
+        var params = $("#myform").serialize(); //직렬화를 한다 
+        console.log( params );
+		$.ajax({
+            method:"POST",
+			url: "process.php",
+            data:params,
+            dataType:"json"
+		}).done(function(data) {
+            var temp ="";
+            
+            temp = "제목 : " + data.title +"<br/>"
+            temp = temp + "이름 : " +  data.writer +"<br/>"
+            temp = temp + "내용 : " + data.contents +"<br/>"
+            
+		    $("#result" ).html( temp );
+		}).fail(function(jx, error){
+			console.log(error);
+		});
+	});
+})
+
+</script>

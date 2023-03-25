@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <input type="text" name="input" id="input">
+</body>
+</html>
+
+<script>
+     $(function(){
+        
+        $("#input").keydown(function(event) {
+            console.log( "keydown:", event.keyCode, String.fromCharCode(event.keyCode));
+        });
+
+        $("#input").keypress(function(event) {
+            console.log( "keypress:", event.keyCode, String.fromCharCode(event.keyCode));
+        });
+
+        $("#input").keyup(function(event) {
+            console.log("keyup:", event.keyCode, String.fromCharCode(event.keyCode));
+        });
+
+    })
+
+  
+</script>
+

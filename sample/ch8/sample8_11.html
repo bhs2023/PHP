@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="form" name="form">
+         
+        나이 : 
+        <input type="radio" name="age"  value="10">10대 
+        <input type="radio" name="age"  value="20">20대 
+        <input type="radio" name="age"  value="30">30대 
+        <input type="radio" name="age"  value="40">40대 
+        <input type="radio" name="age"  value="50">50대 <br>
+        <br>
+        
+        <button id="btnRegister">등록</button>
+        
+    </form>
+</body>
+</html>
+<script>
+    $(()=>{
+        //기본값 설정하기 
+    
+       $("input[type=radio][name=age]").eq(1).prop("checked", true); 
+       
+
+       $("button").click( ()=>{
+            event.preventDefault();
+            let age=$("input[type=radio][name=age]:checked").val();
+            
+            console.log( age );
+       });
+  
+    });
+</script>
+

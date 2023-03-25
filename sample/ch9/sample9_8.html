@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    div {
+        float: left;
+        padding: 15px; 
+        width:25%;
+      }
+  </style>
+
+</head>
+
+
+
+<body>
+  <div class="container">
+  <h2>게시판</h2>
+  <p></p>
+  <ul class="list-group" id="boardList">
+    <li class="list-group-item">
+        <div>번호</div>
+        <div>제목</div>
+        <div>내용</div>
+        <div>조회수</div>
+    </li>
+    
+  </ul>
+  
+  <button id="btnReload" type="button">다시부르기</button>
+
+</div>
+</body>
+</html>
+<script>
+
+$(()=>{
+  loadData();
+
+  $("#btnReload").click( ()=>{
+    loadData();
+  }) 
+})
+
+function loadData(){
+	$.ajax({
+		  url:"board_list.html",
+		  data:{"page":1},
+		  method:"POST",
+		  dataType:"json"
+	}).done(function(data) {
+	  	console.log( data );
+	  	 // jquery를 사용한 방법
+	     
+      $len = $("#boardList li").length-1;
+      for(var i=0; i<$len; i++){                     
+        $("#boardList li:last").remove();
+	    }     
+	    
+	  	data.forEach(function(e){
+	  		 $('#boardList').append('<li class="list-group-item">'+
+                '<div>' + e.id+ '</div>'
+                +'<div>' + e.title   + '</div>' 
+                +'<div>'+ e.writer+ '</div>'
+                +'<div>'+ e.hit + '</div></li>');
+	  	});
+	}).fail(function(jqXHR, textStatus){
+		console.log(jqXHR + textStatus);
+	});
+	
+}
+</script>

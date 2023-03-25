@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="form" name="form">
+        <input type="hidden" name="seq" id="seq"><br>
+        
+        이름 : <input type="text" name="username" id="username"><br><br>
+        이메일 : <input type="text" name="email" id="email"><br><br>
+        
+        <button id="btnRegister">등록</button>
+        
+    </form>
+</body>
+</html>
+<script>
+    $(()=>{
+        //기본값 설정하기 
+       $("input[type=hidden][name=seq]").val(10);
+       $("input[type=text][name=username]").val("홍길동");
+       $("input[type=text][name=email]").val("test@ddd.com");
+      
+       $("button").click( ()=>{
+            event.preventDefault();
+            let seq = $("input[type=hidden][name=seq]").val();
+            let username= $("input[type=text][name=username]").val();
+            let email=$("input[type=text][name=email]").val();
+            
+            console.log( seq );
+            console.log( username );
+            console.log( email ); 
+       });
+  
+    });
+</script>
+

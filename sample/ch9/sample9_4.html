@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<form name="myform" id="myform">
+		userid : <input type="text" name="userid" id="userid" ><br/>
+		password : <input type="text" name="password" id="password" ><br/>
+		<button id="btnCall" type="button">ajax call</button>
+	</form>
+	
+	<div id="demo"></div>
+</body>
+</html>
+<script>
+
+$(()=>{
+	$("#btnCall").click( ()=>{
+		
+		$.ajax({
+			  url: "receive1.php",
+			  data:{"userid":$("#userid").val(), password:$("#password").val()},
+			  method:"POST",
+			  dataType:"text"
+		}).done(function(data) {
+		  console.log(data);
+		}).fail(function(jqXHR, textStatus){
+			console.log(jqXHR + textStatus);
+		});
+	});
+})
+</script>

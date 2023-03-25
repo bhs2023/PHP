@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+   <span id="result" >글자색을 바꿔봅시다</span>  <br/>
+   <button type="button" onclick="buttonRed()">빨간색</button>
+   <button type="button" onclick="buttonBlue()">파란색</button><br/>
+   
+</body>
+</html>
+
+<script>
+
+    function buttonRed(){
+        document.getElementById("result").style.color="#ff0000";
+    }
+    function buttonBlue(){
+        document.getElementById("result").style.color="#0000ff";
+    }
+</script>
+

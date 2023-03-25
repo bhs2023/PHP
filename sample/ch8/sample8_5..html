@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <p id="p1">마우스를 태그 근처에서 움직여보세요</p>
+</body>
+</html>
+
+<script>
+    $(function(){
+        
+        $("#p1").hover(()=>{
+            console.log("You entered p1!");
+        },
+        ()=>{
+            console.log("Bye! You now leave p1!");
+        }); 
+
+    })
+</script>
+

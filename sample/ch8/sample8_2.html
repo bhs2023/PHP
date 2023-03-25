@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <p>태그 셀렉터1</p>
+    <p>태그 셀렉터2</p>
+    <p>태그 셀렉터3</p>
+    <p>태그 셀렉터4</p>
+
+    <p id="test1">id속성 사용하기1</p>
+    <p id="test2">id속성 사용하기2</p>
+
+    <p class="test1">클래스 사용하기 1</p>
+    <p class="test1">클래스 사용하기 2</p>
+    <p class="test1">클래스 사용하기 3</p>
+    <p class="test1">클래스 사용하기 4</p>
+
+    <button id="btnPress" type="button">누르세요</p>
+</body>
+</html>
+
+
+<script>
+   
+    $(function(){
+        $("p").prop("style", "color:red");
+
+        console.log( $("p").prop("style", "color"));
+        
+        $("#test1").prop("style", "color:green");
+        $(".test1").prop("style", "color:magenta");
+        $("#btnPress").click( function(){
+            alert('버튼이 눌림');
+        })
+    });
+    
+</script>

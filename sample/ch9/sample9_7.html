@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+  <h2>게시판</h2>
+  <p></p>
+  <table class="table" id="mytable">
+    <thead class="thead-dark">
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>조회수</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+    </tbody>
+  </table>
+  
+  <button id="btnReload" type="button">다시부르기</button>
+</div>
+</body>
+</html>
+<script>
+
+$(()=>{
+	load();
+  
+  $("#btnReload").click( ()=>{
+    load();
+  }) 
+})
+
+function load()
+{
+  $.ajax({
+		  url:"board_list.html",
+		  data:{"page":1},
+		  method:"POST",
+		  dataType:"json"
+	}).done(function(data) {
+	  	console.log( data );
+	  	 // jquery를 사용한 방법
+	   
+      $len = $("#mytable tr").length-1;
+	    for(var i=0; i<$len; i++){  
+        console.log(i);                   
+	    	 $("#mytable tr:last").remove();
+	    }     
+	    
+	  	data.forEach(function(e){
+	  		 $('#mytable > tbody:last').append('<tr><td>'+e.id+ '</td><td>' + e.title
+	  		  		  + '</td><td>'+ e.writer+ '</td><td>'+ e.hit + '</td></tr>');
+	  	});
+	}).fail(function(jqXHR, textStatus){
+		console.log(jqXHR + textStatus);
+	});
+}
+</script>

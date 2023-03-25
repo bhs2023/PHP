@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <!-- input type="button" 으로 이해한다  -->
+   <button type="button" onclick="buttonClick()">첫번째 버튼을 누르세요</button><br/>
+   <span id="result1"></span> <br/><br/>
+
+   <button type="button" id="btnPress1">두번째 버튼을 누르세요</button><br/>
+   <span id="result2"></span><br/><br/>
+
+   <button type="button" id="btnPress2">세번째 버튼을 누르세요</button><br/>
+   <span id="result3"></span><br/><br/>
+
+   <button type="button" id="btnPress3">네번째 버튼을 누르세요</button><br/>
+   <span id="result4"></span><br/><br/>
+
+
+</body>
+</html>
+
+<script>
+    function buttonClick(){
+        document.getElementById("result1").innerHTML="첫번째 버튼이 눌렸습니다.";
+    }
+
+    let btnPress1 = document.querySelector("#btnPress1"); 
+    //객체 참조를 가져온다 
+    btnPress1.onclick = function () { 
+        document.getElementById("result2").innerHTML="두번째 버튼이 눌렸습니다.";
+    };
+
+    let btnPress2 = document.querySelector("#btnPress2"); 
+    //객체 참조를 가져온다 
+    btnPress2.addEventListener('click', function () {
+
+        document.getElementById("result3").innerHTML="세번째 버튼이 눌렸습니다.";
+    });
+
+    let btnPress3 = document.querySelector("#btnPress3"); 
+    //객체 참조를 가져온다 
+    btnPress3.attachEvent('click', function () {
+        document.getElementById("result4").innerHTML="네번째 버튼이 눌렸습니다.";
+    });
+
+
+</script>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+	div{
+		margin-top: 10px;
+		width:180px; 
+		height:20px; 
+		border:1px solid black;
+	}
+</style>
+<body>
+	x : <input type="text" name="xvalue" id="xvalue" value="5"> <br>
+    y : <input type="text" name="yvalue" id="yvalue" value="4"> <br>
+    
+    연산자 : <select name="oper" id="oper" >
+        <option value="">선택하세요</option>
+        <option value="1">더하기</option>
+        <option value="2">빼기</option>
+        <option value="3">곱하기</option>
+        <option value="4">나누기</option>
+    </select>
+	<br/>
+	<div id="demo"></div>
+	
+</body>
+</html>
+<script>
+$(()=>{
+	$("#oper").change( ()=>{
+
+		$.ajax({
+			  url: "calculate.php",
+              data:{x:$("#xvalue").val(), y:$("#yvalue").val(), oper:$("#oper").val()},
+			  method:"GET",
+			  dataType:"JSON"
+		}).done(function(data) {
+			console.log( data );
+		  $("#demo" ).html( data.result );
+		}).fail(function(error){
+			console.log(error);
+		});
+	});
+})
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form id="form" name="form">   
+        관심분야
+        <input type="checkbox" name="interest"  value="1">프로그래밍 
+        <input type="checkbox" name="interest"  value="2">웹프로그래밍 
+        <input type="checkbox" name="interest"  value="3">Database 
+        <input type="checkbox" name="interest"  value="4">빅데이터 
+        <input type="checkbox" name="interest"  value="5">인공지능 <br><br>
+
+        <button id="btnRegister">등록</button>
+        
+    </form>
+</body>
+</html>
+<script>
+    $(()=>{
+        //기본값 설정하기 
+       $("input[type=checkbox][name=interest]").eq(0).prop("checked", true);
+       $("input[type=checkbox][name=interest]").eq(2).prop("checked", true);
+       $("button").click( ()=>{
+            event.preventDefault();
+            let interest="";
+            $("input[type=checkbox][name=interest]:checked").each(function() {
+                interest += $(this).val()+",";
+            }); 
+            console.log( interest );
+          
+       });
+  
+    });
+</script>
+

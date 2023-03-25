@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" id="userid1" > 
+    <button type="button" id="btnRead1">읽기</button><br/>
+
+    <input type="text" id="userid2"> 
+    <button  type="button" id="btnRead2">읽기2</button><br/>
+</body>
+</html>
+<script>
+    $(()=>{
+        $("#userid1").val("test1");//값 넣기 
+        $("#userid2")[0].value="test2"; 
+
+        $("#btnRead1").click( ()=>{
+            console.log($("#userid1").val()); 
+        });
+
+        $("#btnRead2").click( ()=>{
+            console.log( $("#userid2")[0].value);       
+        });
+    })
+</script>
