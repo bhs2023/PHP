@@ -1,0 +1,37 @@
+drop database mydb;
+create database mydb default character set utf8 collate utf8_general_ci;
+
+
+use mydb;
+
+drop table board;
+create table board
+(
+	seq  bigint not null primary key auto_increment,         -- 게시물 식별값 
+	userid varchar(40),  -- 사용자아이디
+	title varchar(600),  -- 제목
+	contents longtext,  
+	regdate  datetime,  -- 등록일
+	moddate  datetime,  -- 수정일
+	hit int	
+);
+
+
+DELIMITER $$
+CREATE or replace PROCEDURE insert_data()
+BEGIN
+    DECLARE i INT;
+    SET i = 2;
+    
+    WHILE (i < 323) DO
+      insert into board( userid, title, contents,regdate, hit)
+      values( concat('작성자', i), concat('제목은 뭘까요', i), concat('내용도 입력해봅니다\n많이 입력해봅니다', i), now(),  0);
+      SET i = i + 1;
+	END WHILE;
+END $$
+DELIMITER ;
+
+call insert_data();
+
+select * from board;
+
