@@ -57,10 +57,7 @@ else
 <form name="myform" id="myform" method="post">
     <input type="hidden" name="seq"       id="seq"          value="<?=$seq?>" >
     <input type="hidden" name="mode"      id="mode"         value="<?=$mode?>" >
-    <input type="hidden" name="group_id"  id="group_id"     value="<?=group_id?>" >
-    <input type="hidden" name="depth"     id="depth"        value="<?=depth?>" >
-    <input type="hidden" name="g_level"   id="g_level"      value="<?=g_level?>" >
-
+   
    
 <?php include('../inc/nav.php')?>
 
