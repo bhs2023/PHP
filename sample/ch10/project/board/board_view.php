@@ -64,7 +64,7 @@ mysqli_close($conn);
             <tbody>
               <tr class="table-secondary">
                 <th>제목</th>
-                <td colspan="5"><?$title?></td>
+                <td colspan="5"><?=$title?></td>
               </tr>
               <tr>
                 <th >작성자</th>
